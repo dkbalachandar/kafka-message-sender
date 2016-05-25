@@ -5,7 +5,7 @@
             <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZZ} [%thread] %-5level %logger{5} - %msg%n</pattern>
         </encoder>
     </appender>
-    <appender name="APPLICATION_LOGGER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="APP_LOGGER" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>/tmp/app.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/tmp/app.%d{yyyy-MM-dd}.log</fileNamePattern>
@@ -15,7 +15,6 @@
             <Pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZZ} %-5level %-12X{process} %-30([%thread]) %-29logger - %m%n</Pattern>
         </encoder>
     </appender>
-
     <logger name="com" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="APP_LOGGER"/>
@@ -24,5 +23,4 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="APP_LOGGER"/>
     </root>
-
 </configuration>
