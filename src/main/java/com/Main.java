@@ -24,8 +24,7 @@ public class Main {
         ctx.deploy(server);
         try {
             server.start();
-            System.out.println("Press any key to stop the server...");
-            System.in.read();
+            Thread.currentThread().join();
         } finally {
             server.shutdownNow();
         }
