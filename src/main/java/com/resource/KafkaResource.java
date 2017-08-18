@@ -19,7 +19,7 @@ public class KafkaResource {
     @POST
     @Produces(MediaType.TEXT_HTML)
     @Path("send/{message}")
-    public Response sendMessage(@PathParam("msg") String message) {
+    public Response sendMessage(@PathParam("message") String message) {
         LOGGER.info("Message to be sent to Kafka. message::" + message);
         boolean result = KafkaSender.send(message);
         return Response.ok().entity(result ? "message has been sent" : "message has been failed").build();
