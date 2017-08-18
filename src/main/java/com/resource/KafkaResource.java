@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -18,8 +18,8 @@ public class KafkaResource {
 
     @POST
     @Produces(MediaType.TEXT_HTML)
-    @Path("send")
-    public Response sendMessage(@QueryParam("msg") String message) {
+    @Path("send/{message}")
+    public Response sendMessage(@PathParam("msg") String message) {
         LOGGER.info("Message to be sent to Kafka. message::" + message);
         boolean result = KafkaSender.send(message);
         return Response.ok().entity(result ? "message has been sent" : "message has been failed").build();
