@@ -4,7 +4,7 @@ import com.KafkaSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -16,7 +16,7 @@ public class KafkaResource {
 	
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaResource.class);
 
-    @GET
+    @POST
     @Produces(MediaType.TEXT_HTML)
     @Path("send")
     public Response sendMessage(@QueryParam("msg") String message) {
